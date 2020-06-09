@@ -7038,7 +7038,7 @@ async function run() {
 
     // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
     const uploadUrl = core.getInput('upload_url', { required: true });
-    const assetDir = core.getInput('asset_dir', { required: true });
+    const targets = core.getInput('targets', { required: true });
 
     async function glob(pattern, options) {
       return await new Promise((resolve, reject) => {
@@ -7049,7 +7049,7 @@ async function run() {
       });
     }
 
-    let files = await glob(assetDir);
+    let files = await glob(targets);
     if (files == null) throw new Error("No files found.");
 
     async function uploadFile(assetPath, assetName) {
