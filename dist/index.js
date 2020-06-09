@@ -2643,7 +2643,7 @@ function uploadFile(github, uploadUrl, assetPath) {
                             url: uploadUrl,
                             headers: headers,
                             name: assetName,
-                            file: fs.readFileSync(assetPath)
+                            file: fs.createReadStream(assetPath)
                         })];
                 case 1:
                     // Upload a release asset
