@@ -3,6 +3,7 @@ const { GitHub } = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 const $glob = require('glob');
+const mimeTypes = require('mime-types');
 
 async function run() {
   try {
@@ -36,8 +37,11 @@ async function run() {
       // Determine content-length for header to upload asset
       const contentLength = filePath => fs.statSync(filePath).size;
 
+      // Guess mime type using mime-types package - or fallback to application/octet-stream
+      const assetContentType = mimeTypes.lookup(assetName) || 'application/octet-stream';
+
       // Setup headers for API call, see Octokit Documentation: https://octokit.github.io/rest.js/#octokit-routes-repos-upload-release-asset for more information
-      const headers = { /*'content-type': assetContentType,*/ 'content-length': contentLength(assetPath) };
+      const headers = { 'content-type': assetContentType, 'content-length': contentLength(assetPath) };
 
       // Upload a release asset
       // API Documentation: https://developer.github.com/v3/repos/releases/#upload-a-release-asset
