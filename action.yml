@@ -1,5 +1,5 @@
 name: 'Upload Multiple Release Assets'
-description: 'Upload a directory of release assets to an existing release in your repository using a directory glob.'
+description: 'Upload multiple release assets to an existing release in your repository using a glob.'
 author: 'NBTX'
 inputs:
   upload_url:
