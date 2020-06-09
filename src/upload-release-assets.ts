@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import * as callbackGlob from 'glob';
-import mimeTypes from 'mime-types';
+import * as mimeTypes from 'mime-types';
 
 /**
  * 'Promisified' version of the glob function.

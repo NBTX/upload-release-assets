@@ -2591,7 +2591,7 @@ var rest_1 = __webpack_require__(889);
 var fs = __webpack_require__(747);
 var path = __webpack_require__(622);
 var callbackGlob = __webpack_require__(402);
-var mime_types_1 = __webpack_require__(779);
+var mimeTypes = __webpack_require__(779);
 /**
  * 'Promisified' version of the glob function.
  * @param pattern
@@ -2633,7 +2633,7 @@ function uploadFile(github, uploadUrl, assetPath) {
                 case 0:
                     assetName = path.basename(assetPath);
                     contentLength = function (filePath) { return fs.statSync(filePath).size; };
-                    assetContentType = mime_types_1["default"].lookup(assetName) || 'application/octet-stream';
+                    assetContentType = mimeTypes.lookup(assetName) || 'application/octet-stream';
                     headers = { 'content-type': assetContentType, 'content-length': contentLength(assetPath) };
                     // Upload a release asset
                     // API Documentation: https://developer.github.com/v3/repos/releases/#upload-a-release-asset
