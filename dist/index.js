@@ -7052,6 +7052,8 @@ async function run() {
     let files = await glob(targets);
     if (files == null) throw new Error("No files found.");
 
+    core.debug("Uploading files: " + JSON.stringify(files));
+
     async function uploadFile(assetPath, assetName) {
 
       // const assetPath = core.getInput('asset_path', { required: true });

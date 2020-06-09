@@ -5,8 +5,7 @@
   "description": "Upload a release asset to an existing GitHub Release",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint 'src/**.js' 'tests/**.js' --fix",
-    "test": "eslint 'src/**.js' 'tests/**.js' && jest --coverage",
+    "lint": "eslint 'src/**.js' --fix",
     "build": "ncc build src/main.js",
     "precommit": "npm run build && git add dist/"
   },
