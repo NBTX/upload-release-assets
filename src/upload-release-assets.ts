@@ -52,7 +52,7 @@ async function uploadFile(github: Octokit, uploadUrl: string, assetPath: string)
     url: uploadUrl,
     headers,
     name: assetName,
-    file: fs.createReadStream(assetPath)
+    data: fs.readFileSync(assetPath) as unknown as string
   });
   
 }
