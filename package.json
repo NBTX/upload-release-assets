@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint 'src/**.js' --fix",
-    "build": "tsc src/index.ts --outDir ./dist",
+    "build": "ncc build src/main.ts",
     "precommit": "npm run build && git add dist/"
   },
   "repository": {
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@actions/exec": "^1.0.4",
     "@types/glob": "^7.1.2",
+    "@zeit/ncc": "^0.22.3",
     "husky": "^3.0.5",
     "typescript": "^3.9.5"
   }

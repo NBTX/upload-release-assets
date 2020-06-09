@@ -57,7 +57,7 @@ async function uploadFile(github: Octokit, uploadUrl: string, assetPath: string)
   
 }
 
-async function run() {
+export async function run() {
   try {
     
     // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
@@ -81,8 +81,3 @@ async function run() {
     core.setFailed(error.message);
   }
 }
-
-// Run the module.
-(async () => {
-  await run();
-})();
