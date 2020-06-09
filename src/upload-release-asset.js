@@ -25,7 +25,7 @@ async function run() {
     let files = await glob(targets);
     if (files == null) throw new Error("No files found.");
 
-    core.debug("Uploading files: " + JSON.stringify(files));
+    console.log("Uploading files: " + JSON.stringify(files));
 
     async function uploadFile(assetPath, assetName) {
 
@@ -52,9 +52,8 @@ async function run() {
     }
 
     await Promise.all(files.map((file) => {
-      return async function() {
-        return await uploadFile(file, path.basename(file));
-      };
+      console.log("Uploading " + file + "...");
+      return uploadFile(file, path.basename(file));
     }));
 
   } catch (error) {
